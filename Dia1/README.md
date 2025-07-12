@@ -2,9 +2,9 @@
 
 ## 👉 ¿Qué significa DevOps para vos después de esta lección?
 
-DevOps para mí es un enfoque que **integra el desarrollo de software y las operaciones** con el objetivo de **agilizar el ciclo de vida del software**.
+Después de esta lección, veo DevOps como una **cultura de colaboración y mejora continua** que une desarrollo y operaciones para entregar valor de forma más rápida y confiable.
 
-Busca mejorar la **colaboración entre los equipos**, reducir errores, disminuir los tiempos y acelerar las implementaciones, promoviendo así una cultura de automatización, integración continua y entrega continua.
+Más que automatización, promueve **comunicación, integración y entrega continua**, sin perder calidad. Me interesa seguir profundizando porque **adoptar sus principios puede potenciar mi productividad** y mi aporte a cualquier equipo.
 
 ---
 
