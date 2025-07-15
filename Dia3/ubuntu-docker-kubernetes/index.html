@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido, Angelo</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: rgba(255,255,255,0.07);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+            padding: 40px 60px;
+            text-align: center;
+            color: #fff;
+        }
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .highlight {
+            color: #00e6d0;
+            font-weight: bold;
+        }
+        button {
+            margin-top: 30px;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            background: #00e6d0;
+            color: #232526;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #00bfae;
+        }
+        #message {
+            margin-top: 25px;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        #message.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 18px;">
+            <circle cx="40" cy="40" r="38" stroke="#00e6d0" stroke-width="4" fill="#232526"/>
+            <path d="M25 40c0-8.284 6.716-15 15-15s15 6.716 15 15-6.716 15-15 15-15-6.716-15-15zm15-10v20m-10-10h20" stroke="#00e6d0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h1>¡Hola, <span class="highlight">Angelo</span>!</h1>
+        <p style="font-size:1.2rem;">Bienvenido a tu entorno <span class="highlight">DevOps</span> personalizado.<br>
+        <span style="font-size:1rem; color:#b2fefa;">Nginx, Docker, Automatización y más.</span></p>
+        <div style="margin: 18px 0 0 0;">
+            <span style="display:inline-block; background:#00e6d0; color:#232526; border-radius:6px; padding:6px 18px; font-weight:bold; font-size:1.1rem; letter-spacing:1px;">#DevOps</span>
+            <span style="display:inline-block; background:#232526; color:#00e6d0; border:1px solid #00e6d0; border-radius:6px; padding:6px 18px; font-weight:bold; font-size:1.1rem; margin-left:8px;">#Automation</span>
+        </div>
+        <button onclick="showMessage()">Haz clic aquí</button>
+        <div id="message">¡Gracias por visitar, Angelo! 🚀<br><span style="font-size:0.95rem; color:#b2fefa;">¡DevOps en acción!</span></div>
+    </div>
+    <script>
+        function showMessage() {
+            const msg = document.getElementById('message');
+            msg.classList.add('visible');
+        }
+    </script>
+</body>
+</html>

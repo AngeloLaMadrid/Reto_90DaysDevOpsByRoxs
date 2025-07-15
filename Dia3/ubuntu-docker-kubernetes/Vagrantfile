@@ -1,0 +1,18 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/jammy64"
+  config.vm.network "private_network", ip: "192.168.33.10"
+
+  config.vm.provision "shell", inline: <<-SHELL
+    apt update
+    apt install -y docker.io
+    systemctl enable --now docker
+    # Instalar kubectl
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+    # Verificar Docker y kubectl
+    docker --version && kubectl version --client
+  SHELL
+
+  # Provisionar Nginx y el index.html usando el script externo (aplicando lo aprendido)
+  config.vm.provision "shell", path: "scripts/instalar_nginx.sh"
+end
