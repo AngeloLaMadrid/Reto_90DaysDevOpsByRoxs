@@ -1,3 +1,5 @@
+#Recordatorio este escript hace que los archivos .png que se encuentren en la carpeta donde se ejecuta 
+#este script sean renombrados con el nombre del script y el nombre del padre de la carpeta donde se ejecuta.  
 import os
 import re
 
