@@ -1,0 +1,14 @@
+Vagrant.configure("2") do |config|
+         config.vm.box = "bento/ubuntu-24.04"
+         # VM
+         config.vm.define "webserver1" do |web1|
+                  web1.vm.hostname = "webserver1"
+                  web1.vm.network "private_network", ip: "192.168.33.10"
+                end
+         
+         # Provisionamiento con Ansible
+         config.vm.provision "ansible" do |ansible|
+           ansible.playbook = "playbook.yml"
+           ansible.verbose = "v"
+         end
+       end
