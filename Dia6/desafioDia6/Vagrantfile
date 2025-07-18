@@ -1,0 +1,19 @@
+# Vagrantfile limpio y correcto
+
+Vagrant.configure("2") do |config|
+
+         # Define la máquina con nombre "webserver1"
+         config.vm.define "webserver1" do |webserver1|
+           webserver1.vm.box = "ubuntu/jammy64"   # Ubuntu 22.04 LTS
+           webserver1.vm.hostname = "webserver1"
+           webserver1.vm.network "private_network", ip: "192.168.56.10"
+       
+           # Provisionar con Ansible
+           webserver1.vm.provision "ansible" do |ansible|
+             ansible.playbook = "desplegar_app.yml"
+             ansible.inventory_path = "inventories/dev/hosts"
+           end
+         end
+       
+       end
+       
