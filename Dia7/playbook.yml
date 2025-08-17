@@ -1,0 +1,67 @@
+---
+- name: Roxs Voting App
+  hosts: all
+  become: true
+
+  vars:
+    project_dir: "/home/vagrant/roxs-devops-project90"
+
+  tasks:
+    - name: Instalar dependencias del sistema
+      apt:
+        name:
+          - git
+          - python3
+          - python3-pip
+          - curl
+          - redis-server
+          - postgresql
+        state: present
+        update_cache: yes
+
+    - name: Instalar Node.js 20.x
+      shell: |
+        curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+        apt-get install -y nodejs
+      args:
+        executable: /bin/bash
+
+    - name: Clonar el repositorio del proyecto
+      git:
+        repo: https://github.com/roxsross/roxs-devops-project90.git
+        dest: "{{ project_dir }}"
+        version: master
+
+    - name: Instalar paquete python3.12-venv (para usar venv)
+      apt:
+        name: python3.12-venv
+        state: present
+        update_cache: yes
+    
+    - name: Crear entorno virtual para Vote
+      shell: |
+        python3 -m venv /home/vagrant/venv_vote
+      args:
+        creates: /home/vagrant/venv_vote
+
+    - name: Instalar dependencias de Vote dentro del entorno virtual
+      shell: |
+        /home/vagrant/venv_vote/bin/pip install -r /home/vagrant/roxs-devops-project90/roxs-voting-app/vote/requirements.txt
+
+    - name: Instalar dependencias de Node.js para worker/
+      shell: npm install
+      args:
+        chdir: "{{ project_dir }}/roxs-voting-app/worker"
+
+    - name: Instalar dependencias de Node.js para result/
+      shell: npm install
+      args:
+        chdir: "{{ project_dir }}/roxs-voting-app/result"
+
+    - name: Crear base de datos PostgreSQL y usuario
+      become: true
+      shell: |
+        sudo -u postgres psql -c "CREATE DATABASE votes;"
+        sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE votes TO postgres ;"
+      args:
+        creates: "/var/lib/postgresql/data"
