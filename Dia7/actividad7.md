@@ -21,14 +21,6 @@ git clone https://github.com/roxsross/roxs-devops-project90.git
 cd roxs-devops-project90
 ```
 
-## 🧩 Arquitectura
-
-```
-[ Vote (Flask) ] ---> Redis ---> [ Worker (Node.js) ] ---> PostgreSQL
-                                      ↓
-                              [ Result (Node.js) ]
-```
-
 ## ✅ Requisitos
 
 * Git
