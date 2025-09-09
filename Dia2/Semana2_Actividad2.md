@@ -62,7 +62,9 @@ docker run hello-world
     Abrí tu navegador y entrá en [http://localhost:8080](http://localhost:8080) 🚀  
     ¡Deberías ver la página por defecto de NGINX!
 
-![Ejecución de NGINX en Docker](img/90DiasDevOps_Dia_2_Semana2.png)
+
+   - Resultado
+    ![Ejecución de NGINX en Docker](/Dia2/img/90DiasDevOps_Semana2_Dia2_IMG2.png)
 
 ---
 
