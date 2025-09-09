@@ -52,4 +52,4 @@ Si ves el mensaje: “Hello from Docker!”, todo está funcionando.
 
 - 📘 [Guía oficial de instalación de Docker](https://docs.docker.com/get-docker/)
 - 🐳 [Play with Docker (laboratorio online)](https://labs.play-with-docker.com/)
-- 📎 [Cheat Sheet de Docker](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet-esp.pdf)
+- 📎 [Cheat Sheet de Docker](https://www.docker.com/sites/default/files/d8/2019-09/docker-cheat-sheet-esp.pdf)s
